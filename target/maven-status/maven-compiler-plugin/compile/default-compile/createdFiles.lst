@@ -1,0 +1,8 @@
+br\edu\ifnmg\projetoclinica\Cliente.class
+br\edu\ifnmg\projetoclinica\Usuario.class
+br\edu\ifnmg\projetoclinica\Consulta.class
+br\edu\ifnmg\projetoclinica\Entidade.class
+br\edu\ifnmg\projetoclinica\Medico.class
+br\edu\ifnmg\projetoclinica\Expediente.class
+br\edu\ifnmg\projetoclinica\Credencial.class
+br\edu\ifnmg\projetoclinica\Endereco.class
