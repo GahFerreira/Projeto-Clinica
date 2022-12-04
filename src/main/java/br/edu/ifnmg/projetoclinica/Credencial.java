@@ -48,4 +48,12 @@ public class Credencial extends Entidade {
         this.administrador = administrador;
     }
 //</editor-fold>
+    @Override
+    public String toString() {
+        return "Credencial{"
+                + ", nomeUsuario=" + nomeUsuario
+                + ", senha=" + senha
+                + ", administrador=" + administrador
+                + '}';
+    }
 }
