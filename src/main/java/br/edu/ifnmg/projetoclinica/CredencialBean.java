@@ -35,12 +35,30 @@ public class CredencialBean {
     }
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Misc">
-    public String save() throws Exception{
+    public void save() throws Exception{
         userTransaction.begin();
         manager.persist(credencial);
         userTransaction.commit();
-        System.out.println("> "+credencial);
-        return "saida";
+    }
+    public Credencial find(Long ID) throws Exception{
+        userTransaction.begin();
+        Credencial ret = manager.find(Credencial.class, ID);
+        userTransaction.commit();
+        return ret;
+    }
+    public void remove(Long ID) throws Exception{
+        Credencial rem = find(ID);
+        userTransaction.begin();
+        manager.remove(rem);
+        userTransaction.commit();
+    }
+    public void update(Long ID) throws Exception{
+        Credencial updt = find(ID);
+        //interface pra pegar a mudança
+        //faz a mudança tipo updt.setNomeUsuario("Novo nome");
+        userTransaction.begin();
+        manager.merge(updt);
+        userTransaction.commit();
     }
 //</editor-fold>
 }
