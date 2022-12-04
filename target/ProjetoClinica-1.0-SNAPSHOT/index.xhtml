@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>Cadastro de Credencial</title>
+        <title>Cadastros</title>
     </h:head>
     <h:body>
         <h1>Cadastro de Credencial</h1>
@@ -19,6 +19,96 @@
             <h:inputText value="#{credencialBean.credencial.administrador}" /><br/>
 
             <h:commandButton value="Salvar" action="#{credencialBean.save()}"/>
+
+        </h:form>
+        
+        <h1>Cadastro de Endereco</h1>
+
+        <h:form>
+            <h:outputLabel value="Nome rua:"/>
+            <h:inputText value="#{enderecoBean.endereco.rua}" /><br/>
+            
+            <h:outputLabel value="Número:"/>
+            <h:inputText value="#{enderecoBean.endereco.numero}" /><br/>
+            
+            <h:outputLabel value="Bairro:"/>
+            <h:inputText value="#{enderecoBean.endereco.bairro}" /><br/>
+            
+            <h:outputLabel value="Cidade:"/>
+            <h:inputText value="#{enderecoBean.endereco.cidade}" /><br/>
+            
+            <h:outputLabel value="CEP:"/>
+            <h:inputText value="#{enderecoBean.endereco.cep}" /><br/>
+            
+            <h:commandButton value="Salvar" action="#{enderecoBean.save()}"/>
+
+        </h:form>
+        
+        <h1>Cadastro de Médico</h1>
+
+        <h:form>
+            <h:outputLabel value="Nome:"/>
+            <h:inputText value="#{medicoBean.medico.nome}" /><br/>
+            
+            <h:outputLabel value="CPF:"/>
+            <h:inputText value="#{medicoBean.medico.cpf}" /><br/>
+            
+            <h:outputLabel value="CRM:"/>
+            <h:inputText value="#{medicoBean.medico.crm}" /><br/>
+            
+            <h:outputLabel value="Nascimento:"/>
+            <h:inputText value="#{medicoBean.medico.nascimento}" /><br/>
+            
+            <h:outputLabel value="Tempo Consulta:"/>
+            <h:inputText value="#{medicoBean.medico.tempoConsulta}" /><br/>
+            
+            <h:outputLabel value="Endereco:(ID)"/>
+            <h:inputText value="#{medicoBean.medico.endereco}" /><br/>
+            
+            <h:outputLabel value="Expediente:"/>
+            
+            <h:commandButton value="Salvar" action="#{enderecoBean.save()}"/>
+
+        </h:form>
+        
+        <h1>Cadastro de Cliente</h1>
+
+        <h:form>
+            <h:outputLabel value="Nome:"/>
+            <h:inputText value="#{clienteBean.cliente.nome}" /><br/>
+            
+            <h:outputLabel value="CPF:"/>
+            <h:inputText value="#{clienteBean.cliente.cpf}" /><br/>
+            
+            <h:outputLabel value="Nascimento:"/>
+            <h:inputText value="#{clienteBean.cliente.nascimento}" /><br/>
+            
+            <h:outputLabel value="Endereco:(ID)"/>
+            <h:inputText value="#{clienteBean.cliente.endereco}" /><br/>            
+            
+            <h:commandButton value="Salvar" action="#{enderecoBean.save()}"/>
+
+        </h:form>
+        
+        <h1>Cadastro de Consulta</h1>
+
+        <h:form>
+            <h:outputLabel value="Data consulta:"/>
+            <h:inputText value="#{consultaBean.consulta.dataConsulta}" /><br/>
+            
+            <h:outputLabel value="Hora consulta:"/>
+            <h:inputText value="#{consultaBean.consulta.horaConsulta}" /><br/>
+            
+            <h:outputLabel value="Preco:"/>
+            <h:inputText value="#{consultaBean.consulta.preco}" /><br/>
+            
+            <h:outputLabel value="Paciente:(ID)"/>
+            <h:inputText value="#{consultaBean.consulta.cliente}" /><br/>
+            
+            <h:outputLabel value="Médico:(ID)"/>
+            <h:inputText value="#{consultaBean.consulta.medico}" /><br/>
+            
+            <h:commandButton value="Salvar" action="#{enderecoBean.save()}"/>
 
         </h:form>
     </h:body>

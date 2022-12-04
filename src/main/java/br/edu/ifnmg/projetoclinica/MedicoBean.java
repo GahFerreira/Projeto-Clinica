@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/J2EE/EJB30/StatelessEjbClass.java to edit this template
+ */
 package br.edu.ifnmg.projetoclinica;
 
 import javax.annotation.Resource;
@@ -12,50 +16,50 @@ import javax.transaction.UserTransaction;
  *
  * @author Thiago Riquelmo
  */
-@Named(value = "credencialBean")
+@Named(value = "medicoBean")
 @RequestScoped
-public class EnderecoBean {
+public class MedicoBean {
     @PersistenceContext(unitName = "ClinicaDU")
     private EntityManager manager;
     @Resource
     private UserTransaction userTransaction;
-    private Endereco endereco;
-
+    private Medico medico;
+    
     //<editor-fold defaultstate="collapsed" desc="Construtor">
-    public EnderecoBean() {
-        endereco = new Endereco();
+    public MedicoBean() {
+        medico = new Medico();
     }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public Endereco getEndereco() {
-        return endereco;
+    public Medico getMedico() {
+        return medico;
     }
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setConsulta(Medico medico) {
+        this.medico = medico;
     }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Misc">
     public void save() throws Exception{
         userTransaction.begin();
-        manager.persist(endereco);
+        manager.persist(medico);
         userTransaction.commit();
     }
-    public Endereco find(Long ID) throws Exception{
+    public Medico find(Long ID) throws Exception{
         userTransaction.begin();
-        Endereco ret = manager.find(Endereco.class, ID);
+        Medico ret = manager.find(Medico.class, ID);
         userTransaction.commit();
         return ret;
     }
     public void remove(Long ID) throws Exception{
-        Endereco rem = find(ID);
+        Medico rem = find(ID);
         userTransaction.begin();
         manager.remove(rem);
         userTransaction.commit();
     }
     public void update(Long ID) throws Exception{
-        Endereco updt = find(ID);
+        Medico updt = find(ID);
         //interface pra pegar a mudança
         //faz a mudança tipo updt.setNomeUsuario("Novo nome");
         userTransaction.begin();
