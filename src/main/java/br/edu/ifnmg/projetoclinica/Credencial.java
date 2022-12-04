@@ -1,5 +1,6 @@
 package br.edu.ifnmg.projetoclinica;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 /**
@@ -8,8 +9,12 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Credencial extends Entidade {
+
+    @Column(nullable=false, length=121)
     private String nomeUsuario;
+    @Column(nullable=false, length=6)
     private String senha;
+    @Column(nullable=false)
     private Boolean administrador;
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">

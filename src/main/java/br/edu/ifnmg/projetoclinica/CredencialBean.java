@@ -2,6 +2,8 @@ package br.edu.ifnmg.projetoclinica;
 
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -10,6 +12,8 @@ import javax.enterprise.context.RequestScoped;
 @Named(value = "credencialBean")
 @RequestScoped
 public class CredencialBean {
+    @PersistenceContext(unitName = "ClinicaDU")
+    private EntityManager manager;
     private Credencial credencial;
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">
@@ -26,8 +30,9 @@ public class CredencialBean {
         this.credencial=credencial;
     }
 //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="Save">
-    public String save() {
+    //<editor-fold defaultstate="collapsed" desc="Misc">
+    public String save() throws Exception{
+        manager.persist(credencial);
         System.out.println("> "+credencial);
         return "saida";
     }
