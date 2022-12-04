@@ -1,9 +1,11 @@
 package br.edu.ifnmg.projetoclinica;
 
+import javax.annotation.Resource;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.UserTransaction;
 
 /**
  *
@@ -14,6 +16,8 @@ import javax.persistence.PersistenceContext;
 public class CredencialBean {
     @PersistenceContext(unitName = "ClinicaDU")
     private EntityManager manager;
+    @Resource
+    private UserTransaction userTransaction;
     private Credencial credencial;
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">
@@ -32,7 +36,9 @@ public class CredencialBean {
 //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Misc">
     public String save() throws Exception{
+        userTransaction.begin();
         manager.persist(credencial);
+        userTransaction.commit();
         System.out.println("> "+credencial);
         return "saida";
     }
