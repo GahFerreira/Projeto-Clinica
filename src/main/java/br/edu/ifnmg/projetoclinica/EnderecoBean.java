@@ -1,7 +1,6 @@
 package br.edu.ifnmg.projetoclinica;
 
 import javax.annotation.Resource;
-import javax.ejb.Stateless;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -12,7 +11,7 @@ import javax.transaction.UserTransaction;
  *
  * @author Thiago Riquelmo
  */
-@Named(value = "credencialBean")
+@Named(value = "enderecoBean")
 @RequestScoped
 public class EnderecoBean {
     @PersistenceContext(unitName = "ClinicaDU")
@@ -51,7 +50,7 @@ public class EnderecoBean {
     public void remove(Long ID) throws Exception{
         Endereco rem = find(ID);
         userTransaction.begin();
-        manager.remove(rem);
+        manager.remove(manager.contains(rem) ? rem : manager.merge(rem));
         userTransaction.commit();
     }
     public void update(Long ID) throws Exception{

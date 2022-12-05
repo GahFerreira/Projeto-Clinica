@@ -35,7 +35,7 @@ public class MedicoBean {
     public Medico getMedico() {
         return medico;
     }
-    public void setConsulta(Medico medico) {
+    public void setMedico(Medico medico) {
         this.medico = medico;
     }
     //</editor-fold>
@@ -55,7 +55,7 @@ public class MedicoBean {
     public void remove(Long ID) throws Exception{
         Medico rem = find(ID);
         userTransaction.begin();
-        manager.remove(rem);
+        manager.remove(manager.contains(rem) ? rem : manager.merge(rem));
         userTransaction.commit();
     }
     public void update(Long ID) throws Exception{

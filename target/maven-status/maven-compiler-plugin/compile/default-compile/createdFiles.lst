@@ -1,10 +1,14 @@
+br\edu\ifnmg\projetoclinica\ClienteBean.class
 br\edu\ifnmg\projetoclinica\Cliente.class
 br\edu\ifnmg\projetoclinica\CredencialBean.class
-br\edu\ifnmg\projetoclinica\Usuario.class
-br\edu\ifnmg\projetoclinica\Consulta.class
 br\edu\ifnmg\projetoclinica\Entidade.class
 br\edu\ifnmg\projetoclinica\Medico.class
 br\edu\ifnmg\projetoclinica\Dia.class
 br\edu\ifnmg\projetoclinica\Expediente.class
 br\edu\ifnmg\projetoclinica\Credencial.class
+br\edu\ifnmg\projetoclinica\EnderecoBean.class
+br\edu\ifnmg\projetoclinica\ConsultaBean.class
+br\edu\ifnmg\projetoclinica\Usuario.class
+br\edu\ifnmg\projetoclinica\Consulta.class
+br\edu\ifnmg\projetoclinica\MedicoBean.class
 br\edu\ifnmg\projetoclinica\Endereco.class

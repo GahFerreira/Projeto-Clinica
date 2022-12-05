@@ -55,7 +55,7 @@ public class ConsultaBean {
     public void remove(Long ID) throws Exception{
         Consulta rem = find(ID);
         userTransaction.begin();
-        manager.remove(rem);
+        manager.remove(manager.contains(rem) ? rem : manager.merge(rem));
         userTransaction.commit();
     }
     public void update(Long ID) throws Exception{

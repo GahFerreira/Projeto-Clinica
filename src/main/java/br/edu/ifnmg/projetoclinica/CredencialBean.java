@@ -46,10 +46,11 @@ public class CredencialBean {
         userTransaction.commit();
         return ret;
     }
-    public void remove(Long ID) throws Exception{
-        Credencial rem = find(ID);
+    public void remove(int ID) throws Exception{
+        Long temp = Long.valueOf(ID);
+        Credencial rem = find(temp);
         userTransaction.begin();
-        manager.remove(rem);
+        manager.remove(manager.contains(rem) ? rem : manager.merge(rem));
         userTransaction.commit();
     }
     public void update(Long ID) throws Exception{
@@ -57,7 +58,7 @@ public class CredencialBean {
         //interface pra pegar a mudança
         //faz a mudança tipo updt.setNomeUsuario("Novo nome");
         userTransaction.begin();
-        manager.merge(updt);
+        manager.merge(updt); //talvez precise atualizar semelhante à remove
         userTransaction.commit();
     }
 //</editor-fold>

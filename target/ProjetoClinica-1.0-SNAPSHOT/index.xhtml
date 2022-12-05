@@ -19,6 +19,8 @@
             <h:inputText value="#{credencialBean.credencial.administrador}" /><br/>
 
             <h:commandButton value="Salvar" action="#{credencialBean.save()}"/>
+            <h:commandButton value="Deletar" action="#{credencialBean.remove(1)}"/>
+            <!--teste^-->
 
         </h:form>
         
@@ -67,7 +69,7 @@
             
             <h:outputLabel value="Expediente:"/>
             
-            <h:commandButton value="Salvar" action="#{enderecoBean.save()}"/>
+            <h:commandButton value="Salvar" action="#{medicoBean.save()}"/>
 
         </h:form>
         
@@ -83,13 +85,14 @@
             <h:outputLabel value="Nascimento:"/>
             <h:inputText value="#{clienteBean.cliente.nascimento}" /><br/>
             
+            <!-- era pra buscar o endereço no banco... só pra teste -->
             <h:outputLabel value="Endereco:(ID)"/>
-            <h:inputText value="#{clienteBean.cliente.endereco}" /><br/>            
+            <h:inputText value="#{clienteBean.cliente.endereco}" /><br/>           
             
-            <h:commandButton value="Salvar" action="#{enderecoBean.save()}"/>
+            <h:commandButton value="Salvar" action="#{clienteBean.save()}"/>
 
         </h:form>
-        
+
         <h1>Cadastro de Consulta</h1>
 
         <h:form>
@@ -108,7 +111,7 @@
             <h:outputLabel value="Médico:(ID)"/>
             <h:inputText value="#{consultaBean.consulta.medico}" /><br/>
             
-            <h:commandButton value="Salvar" action="#{enderecoBean.save()}"/>
+            <h:commandButton value="Salvar" action="#{consultaBean.save()}"/>
 
         </h:form>
     </h:body>
