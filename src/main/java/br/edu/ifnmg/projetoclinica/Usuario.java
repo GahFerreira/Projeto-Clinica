@@ -1,12 +1,14 @@
 package br.edu.ifnmg.projetoclinica;
 
 import java.time.LocalDate;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 
 /**
  *
  * @author Projeto
  */
+@MappedSuperclass
 public abstract class Usuario extends Entidade {
     private Long cpf;
     private String nome;
