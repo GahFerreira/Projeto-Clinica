@@ -1,7 +1,6 @@
 package br.edu.ifnmg.projetoclinica;
 
 import java.time.LocalTime;
-import java.util.List;
 import javax.persistence.Entity;
 
 /**
@@ -9,24 +8,24 @@ import javax.persistence.Entity;
  * @author Projeto
  */
 @Entity
-public class Dia extends Entidade {
-    private List<LocalTime> horario;
+public class Horario extends Entidade {
+    private LocalTime horario;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
-    public Dia() {
+    public Horario() {
     }
     
-    public Dia(List<LocalTime> horario) {
+    public Horario(LocalTime horario) {
         this.horario = horario;
     }
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public List<LocalTime> getDia() {
+    public LocalTime getDia() {
         return horario;
     }
     
-    public void setDia(List<LocalTime> horario) {
+    public void setDia(LocalTime horario) {
         this.horario = horario;
     }
 //</editor-fold>

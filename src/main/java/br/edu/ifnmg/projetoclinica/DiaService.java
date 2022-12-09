@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
  */
 @Stateless
 public class DiaService implements DiaServiceLocal {
-    @PersistenceContext(unitName = "ClinicaDU")
+@PersistenceContext(unitName = "ClinicaDU")
     private EntityManager manager;
     
     @Override
@@ -32,6 +32,6 @@ public class DiaService implements DiaServiceLocal {
     }
     @Override
     public void update(Dia updt) throws Exception{
-        manager.merge(updt);
+        manager.merge(updt); //talvez precise atualizar semelhante à remove
     }
 }

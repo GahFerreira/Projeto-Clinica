@@ -12,7 +12,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface DiaServiceLocal {
-    public void save(Dia die) throws Exception;
+    public void save(Dia dia) throws Exception;
     public Dia find(Long ID) throws Exception;
     public void remove(Dia rem) throws Exception;
     public void update(Dia updt) throws Exception; 
