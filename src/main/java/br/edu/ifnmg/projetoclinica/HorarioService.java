@@ -13,25 +13,25 @@ import javax.persistence.PersistenceContext;
  * @author Saulo
  */
 @Stateless
-public class DiaService implements DiaServiceLocal {
+public class HorarioService implements HorarioServiceLocal {
     @PersistenceContext(unitName = "ClinicaDU")
     private EntityManager manager;
     
     @Override
-    public void save(Dia dia) throws Exception{
+    public void save(Horario dia) throws Exception{
         manager.persist(dia);
     }
     @Override
-    public Dia find(Long ID) throws Exception{
-        Dia ret = manager.find(Dia.class, ID);
+    public Horario find(Long ID) throws Exception{
+        Horario ret = manager.find(Horario.class, ID);
         return ret;
     }
     @Override
-    public void remove(Dia rem) throws Exception{
+    public void remove(Horario rem) throws Exception{
         manager.remove(rem);
     }
     @Override
-    public void update(Dia updt) throws Exception{
+    public void update(Horario updt) throws Exception{
         manager.merge(updt);
     }
 }

@@ -11,9 +11,9 @@ import javax.ejb.Local;
  * @author Saulo
  */
 @Local
-public interface DiaServiceLocal {
-    public void save(Dia die) throws Exception;
-    public Dia find(Long ID) throws Exception;
-    public void remove(Dia rem) throws Exception;
-    public void update(Dia updt) throws Exception; 
+public interface HorarioServiceLocal {
+    public void save(Horario die) throws Exception;
+    public Horario find(Long ID) throws Exception;
+    public void remove(Horario rem) throws Exception;
+    public void update(Horario updt) throws Exception; 
 }
