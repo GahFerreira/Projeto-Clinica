@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -24,11 +25,11 @@ public class Expediente extends Entidade {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public List<Dia> getDia() {
+    public List<Dia> getExpediente() {
         return dia;
     }
     
-    public void setDia(List<Dia> dia) {
+    public void setExpediente(List<Dia> dia) {
         this.dia = dia;
     }
 //</editor-fold>

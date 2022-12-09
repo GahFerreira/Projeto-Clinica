@@ -9,7 +9,7 @@ import javax.persistence.OneToOne;
  * @author Projeto
  */
 @MappedSuperclass
-public abstract class Usuario extends Entidade {
+public abstract class Pessoa extends Entidade {
     private Long cpf;
     private String nome;
     private LocalDate nascimento;
@@ -17,17 +17,17 @@ public abstract class Usuario extends Entidade {
     private Endereco endereco;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
-    public Usuario() {
+    public Pessoa() {
     }
 
-    public Usuario(Long cpf, String nome, LocalDate nascimento, Endereco endereco) {
+    public Pessoa(Long cpf, String nome, LocalDate nascimento, Endereco endereco) {
         this.cpf = cpf;
         this.nome = nome;
         this.nascimento = nascimento;
         this.endereco = endereco;
     }
     
-    public Usuario(Long cpf, String nome, LocalDate nascimento, Endereco endereco, Long id) {
+    public Pessoa(Long cpf, String nome, LocalDate nascimento, Endereco endereco, Long id) {
         super(id);
         this.cpf = cpf;
         this.nome = nome;
