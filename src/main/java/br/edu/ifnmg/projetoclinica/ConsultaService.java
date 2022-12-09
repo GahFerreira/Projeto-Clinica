@@ -4,67 +4,34 @@
  */
 package br.edu.ifnmg.projetoclinica;
 
-import javax.annotation.Resource;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.UserTransaction;
 
 /**
  *
- * @author Thiago Riquelmo
+ * @author Saulo
  */
-@Named(value = "consultaBean")
-@RequestScoped
-public class ConsultaBean {
+@Stateless
+public class ConsultaService implements ConsultaServiceLocal{
     @PersistenceContext(unitName = "ClinicaDU")
     private EntityManager manager;
-    @Resource
-    private UserTransaction userTransaction;
-    private Consulta consulta;
     
-    //<editor-fold defaultstate="collapsed" desc="Construtor">
-    public ConsultaBean() {
-        consulta = new Consulta();
-    }
-    //</editor-fold>    
-
-    //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public Consulta getConsulta() {
-        return consulta;
-    }
-    public void setConsulta(Consulta consulta) {
-        this.consulta = consulta;
-    }
-    //</editor-fold>
-    
-    //<editor-fold defaultstate="collapsed" desc="Misc">
-    public void save() throws Exception{
-        userTransaction.begin();
+    @Override
+    public void save(Consulta consulta) throws Exception{
         manager.persist(consulta);
-        userTransaction.commit();
     }
+    @Override
     public Consulta find(Long ID) throws Exception{
-        userTransaction.begin();
         Consulta ret = manager.find(Consulta.class, ID);
-        userTransaction.commit();
         return ret;
     }
-    public void remove(Long ID) throws Exception{
-        Consulta rem = find(ID);
-        userTransaction.begin();
-        manager.remove(manager.contains(rem) ? rem : manager.merge(rem));
-        userTransaction.commit();
+    @Override
+    public void remove(Consulta rem) throws Exception{
+        manager.remove(rem);
     }
-    public void update(Long ID) throws Exception{
-        Consulta updt = find(ID);
-        //interface pra pegar a mudança
-        //faz a mudança tipo updt.setNomeUsuario("Novo nome");
-        userTransaction.begin();
+    @Override
+    public void update(Consulta updt) throws Exception{
         manager.merge(updt);
-        userTransaction.commit();
     }
-    //</editor-fold>
 }

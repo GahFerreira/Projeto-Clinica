@@ -1,65 +1,33 @@
 package br.edu.ifnmg.projetoclinica;
 
-import javax.annotation.Resource;
-import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.UserTransaction;
 
 /**
  *
- * @author Projeto
+ * @author Saulo
  */
-@Named(value = "credencialBean")
-@RequestScoped
-public class CredencialBean {
+@Stateless
+public class CredencialService implements CredencialServiceLocal{
     @PersistenceContext(unitName = "ClinicaDU")
     private EntityManager manager;
-    @Resource
-    private UserTransaction userTransaction;
-    private Credencial credencial;
-
-    //<editor-fold defaultstate="collapsed" desc="Construtor">
-    public CredencialBean() {
-        credencial=new Credencial();
-    }
-//</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public Credencial getCredencial() {
-        return credencial;
-    }
-    public void setCredencial(Credencial credencial) {
-        this.credencial=credencial;
-    }
-//</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="Misc">
-    public void save() throws Exception{
-        userTransaction.begin();
+    
+    @Override
+    public void save(Credencial credencial) throws Exception{
         manager.persist(credencial);
-        userTransaction.commit();
     }
+    @Override
     public Credencial find(Long ID) throws Exception{
-        userTransaction.begin();
         Credencial ret = manager.find(Credencial.class, ID);
-        userTransaction.commit();
         return ret;
     }
-    public void remove(int ID) throws Exception{
-        Long temp = Long.valueOf(ID);
-        Credencial rem = find(temp);
-        userTransaction.begin();
-        manager.remove(manager.contains(rem) ? rem : manager.merge(rem));
-        userTransaction.commit();
+    @Override
+    public void remove(Credencial rem) throws Exception{
+        manager.remove(rem);
     }
-    public void update(Long ID) throws Exception{
-        Credencial updt = find(ID);
-        //interface pra pegar a mudança
-        //faz a mudança tipo updt.setNomeUsuario("Novo nome");
-        userTransaction.begin();
+    @Override
+    public void update(Credencial updt) throws Exception{
         manager.merge(updt); //talvez precise atualizar semelhante à remove
-        userTransaction.commit();
     }
-//</editor-fold>
 }

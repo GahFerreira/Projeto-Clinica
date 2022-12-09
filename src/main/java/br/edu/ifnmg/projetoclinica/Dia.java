@@ -10,23 +10,23 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Dia extends Entidade {
-    private String horario;
+    private List<LocalTime> horario;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
     public Dia() {
     }
     
-    public Dia(String horario) {
+    public Dia(List<LocalTime> horario) {
         this.horario = horario;
     }
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public String getDia() {
+    public List<LocalTime> getDia() {
         return horario;
     }
     
-    public void setDia(String horario) {
+    public void setDia(List<LocalTime> horario) {
         this.horario = horario;
     }
 //</editor-fold>

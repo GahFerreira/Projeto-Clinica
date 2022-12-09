@@ -4,66 +4,37 @@
  */
 package br.edu.ifnmg.projetoclinica;
 
-import javax.annotation.Resource;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.UserTransaction;
 
 /**
  *
- * @author Thiago Riquelmo
+ * @author Saulo
  */
-@Named(value = "clienteBean")
-@RequestScoped
-public class ClienteBean {
+@Stateless
+public class ClienteService implements ClienteServiceLocal{
     @PersistenceContext(unitName = "ClinicaDU")
     private EntityManager manager;
-    @Resource
-    private UserTransaction userTransaction;
-    private Cliente cliente;
     
-    //<editor-fold defaultstate="collapsed" desc="Construtor">
-    public ClienteBean() {
-        cliente = new Cliente();
-    }
-    //</editor-fold>
-    
-    //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public Cliente getCliente() {
-        return cliente;
-    }
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-    //</editor-fold>
-    
-    //<editor-fold defaultstate="collapsed" desc="Misc">
-    public void save() throws Exception{
-        userTransaction.begin();
+    @Override
+    public void save(Cliente cliente) throws Exception{
         manager.persist(cliente);
-        userTransaction.commit();
     }
+    @Override
     public Cliente find(Long ID) throws Exception{
-        userTransaction.begin();
         Cliente ret = manager.find(Cliente.class, ID);
-        userTransaction.commit();
         return ret;
     }
-    public void remove(Long ID) throws Exception{
-        Cliente rem = find(ID);
-        userTransaction.begin();
-        manager.remove(manager.contains(rem) ? rem : manager.merge(rem));
-        userTransaction.commit();
+    @Override
+    public void remove(Cliente rem) throws Exception{
+        //manager.remove(manager.contains(rem) ? rem : manager.merge(rem)); //antigo
+        manager.remove(rem);
     }
-    public void update(Long ID) throws Exception{
-        Cliente updt = find(ID);
+    @Override
+    public void update(Cliente updt) throws Exception{
         //interface pra pegar a mudança
-        //faz a mudança tipo updt.setNomeUsuario("Novo nome");
-        userTransaction.begin();
+        //faz a mudança tipo updt.setNomeUsuario("Novo nome") e chama esse update;
         manager.merge(updt);
-        userTransaction.commit();
     }
-    //</editor-fold>
 }

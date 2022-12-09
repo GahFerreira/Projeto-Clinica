@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
  * @author Projeto
  */
 @Entity
-public class Medico extends Usuario {
+public class Medico extends Pessoa {
     private String crm;
     private Double tempoConsulta;
     @OneToOne
