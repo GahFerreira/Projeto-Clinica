@@ -15,16 +15,16 @@ public class Credencial extends Entidade {
     @Column(nullable=false, length=6)
     private String senha;
     @Column(nullable=false)
-    private Boolean administrador;
+    private String grupo;
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">
     public Credencial() {
     }
     
-    public Credencial(String nomeUsuario, String senha, Boolean admin) {
+    public Credencial(String nomeUsuario, String senha, String grupo) {
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
-        this.administrador = admin;
+        this.grupo = grupo;
     }
 //</editor-fold>
 
@@ -45,12 +45,12 @@ public class Credencial extends Entidade {
         this.senha = senha;
     }
     
-    public Boolean getAdministrador() {
-        return administrador;
+    public String getGrupo() {
+        return grupo;
     }
     
-    public void setAdministrador(Boolean administrador) {
-        this.administrador = administrador;
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
     }
 //</editor-fold>
     @Override
@@ -58,7 +58,7 @@ public class Credencial extends Entidade {
         return "Credencial{"
                 + ", nomeUsuario=" + nomeUsuario
                 + ", senha=" + senha
-                + ", administrador=" + administrador
+                + ", grupo=" + grupo
                 + '}';
     }
 }
