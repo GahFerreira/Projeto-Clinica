@@ -18,7 +18,7 @@ import javax.security.enterprise.identitystore.Pbkdf2PasswordHash;
 public class UserService
         implements UserServiceLocal {
 
-    @PersistenceContext(unitName = "secureApp")
+    @PersistenceContext(unitName = "ClinicaDU")
     EntityManager em;
 
     @Inject

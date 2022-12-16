@@ -8,8 +8,6 @@ br\edu\ifnmg\projetoclinica\EnderecoService.class
 br\edu\ifnmg\projetoclinica\Medico.class
 br\edu\ifnmg\projetoclinica\Dia.class
 br\edu\ifnmg\projetoclinica\Expediente.class
-br\edu\ifnmg\projetoclinica\Credencial.class
-br\edu\ifnmg\projetoclinica\CredencialService.class
 br\edu\ifnmg\projetoclinica\Pessoa.class
 br\edu\ifnmg\projetoclinica\ConsultaServiceLocal.class
 br\edu\ifnmg\projetoclinica\ExpedienteService.class
@@ -22,14 +20,15 @@ br\edu\ifnmg\projetoclinica\security\UserService.class
 br\edu\ifnmg\projetoclinica\security\User.class
 br\edu\ifnmg\projetoclinica\ConvenioService.class
 br\edu\ifnmg\projetoclinica\Endereco.class
+br\edu\ifnmg\projetoclinica\security\DataInitializer.class
 br\edu\ifnmg\projetoclinica\security\LoginController$1.class
 br\edu\ifnmg\projetoclinica\Entidade.class
 br\edu\ifnmg\projetoclinica\DiaService.class
+br\edu\ifnmg\projetoclinica\security\ApplicationConfig.class
 br\edu\ifnmg\projetoclinica\ConvenioServiceLocal.class
 br\edu\ifnmg\projetoclinica\EnderecoServiceLocal.class
 br\edu\ifnmg\projetoclinica\ClienteService.class
 br\edu\ifnmg\projetoclinica\Convenio.class
-br\edu\ifnmg\projetoclinica\CredencialServiceLocal.class
 br\edu\ifnmg\projetoclinica\security\LoginController.class
 br\edu\ifnmg\projetoclinica\HorarioServiceLocal.class
 br\edu\ifnmg\projetoclinica\MedicoService.class
