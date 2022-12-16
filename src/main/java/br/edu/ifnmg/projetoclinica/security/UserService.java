@@ -27,7 +27,6 @@ public class UserService
     @Override
     public User createUser(String name, String username, String password, String group) {
 
-        // @see ApplicationConfig
         Map<String, String> parameters = new HashMap<>();
         parameters.put("Pbkdf2PasswordHash.Iterations", "3071");
         parameters.put("Pbkdf2PasswordHash.Algorithm", "PBKDF2WithHmacSHA512");
@@ -41,7 +40,6 @@ public class UserService
                         password.toCharArray()),
                 group);
         em.persist(newUser);
-//        em.flush();
         return newUser;
     }
 

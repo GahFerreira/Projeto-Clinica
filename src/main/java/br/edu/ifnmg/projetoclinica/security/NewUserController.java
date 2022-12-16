@@ -48,7 +48,7 @@ public class NewUserController {
                 user.getPassword(), 
                 user.getGroup());
         
-        return "/users?faces-redirect=true";
+        return "/index?faces-redirect=true";
     }
     
 }
