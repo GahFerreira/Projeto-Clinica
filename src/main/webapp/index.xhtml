@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    template="/WEB-INF/templates/default.xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="main">
+        <div class="caixa">
+            <h:form>
+                <p:panelGrid columns="3" layout="grid" styleClass="showcase-text-align-center">
+                    <p:commandButton type="button" 
+                                     value="Cadastrar Cliente" 
+                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"
+                                     />
+
+                    <p:commandButton type="button" 
+                                     value="Cadastrar Médico" 
+                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"/>
+
+                    <p:commandButton type="button" 
+                                     value="Cadastrar Convênio" 
+                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"
+                                     action="cadastrarConvenio"/>
+                </p:panelGrid>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
