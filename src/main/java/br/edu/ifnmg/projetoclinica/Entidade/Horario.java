@@ -1,4 +1,4 @@
-package br.edu.ifnmg.projetoclinica;
+package br.edu.ifnmg.projetoclinica.Entidade;
 
 import java.time.LocalTime;
 import javax.persistence.Entity;

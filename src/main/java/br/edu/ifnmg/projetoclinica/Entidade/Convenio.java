@@ -1,6 +1,8 @@
-package br.edu.ifnmg.projetoclinica;
+package br.edu.ifnmg.projetoclinica.Entidade;
 
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 
 /**
  * Classe que representa um cliente da clínica.
@@ -11,6 +13,8 @@ import javax.persistence.Entity;
 public class Convenio extends Entidade{
     private String nome;
     private Double desconto;
+    @ManyToMany(mappedBy = "convenio")
+    private List<Cliente> clientes;
     
     //<editor-fold defaultstate="collapsed" desc="Construtores">
     public Convenio() {

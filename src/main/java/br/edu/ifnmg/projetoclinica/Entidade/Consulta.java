@@ -1,4 +1,4 @@
-package br.edu.ifnmg.projetoclinica;
+package br.edu.ifnmg.projetoclinica.Entidade;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

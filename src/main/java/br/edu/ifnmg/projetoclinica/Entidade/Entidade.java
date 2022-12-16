@@ -1,4 +1,4 @@
-package br.edu.ifnmg.projetoclinica;
+package br.edu.ifnmg.projetoclinica.Entidade;
 
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;

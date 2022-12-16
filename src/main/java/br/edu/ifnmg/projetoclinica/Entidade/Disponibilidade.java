@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.ifnmg.projetoclinica;
+package br.edu.ifnmg.projetoclinica.Entidade;
 
 import java.util.List;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
  * @author Saulo
  */
 @Entity
-public class Dia extends Entidade{
+public class Disponibilidade extends Entidade{
 
     private enum DiaSemana{segunda, terça, quarta, quinta, sexta}
     private DiaSemana nomeDia;
@@ -21,10 +21,10 @@ public class Dia extends Entidade{
     private List<Horario> horario;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
-    public Dia() {
+    public Disponibilidade() {
     }
     
-    public Dia(List<Horario> horario, DiaSemana nomeDia) {
+    public Disponibilidade(List<Horario> horario, DiaSemana nomeDia) {
         this.horario = horario;
         this.nomeDia=nomeDia;
     }

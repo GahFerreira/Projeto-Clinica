@@ -1,4 +1,4 @@
-package br.edu.ifnmg.projetoclinica;
+package br.edu.ifnmg.projetoclinica.Entidade;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -14,6 +14,8 @@ import javax.persistence.OneToOne;
 public class Medico extends Pessoa {
     private String crm;
     private Double tempoConsulta;
+    private enum Especialidade{Dentista, Oftamologista, Pneumologista, Otarrinolaringologista}
+    private Especialidade especialidade;
     @OneToOne
     private Expediente expediente;
     @OneToMany
@@ -23,27 +25,30 @@ public class Medico extends Pessoa {
     public Medico() {
     }
 
-    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas) {
+    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade) {
         this.crm = crm;
         this.tempoConsulta = tempoConsulta;
         this.expediente = expediente;
         this.consultas = consultas;
+        this.especialidade= especialidade;
     }
 
-    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Long cpf, String nome, LocalDate nascimento, Endereco endereco) {
+    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade, Long cpf, String nome, LocalDate nascimento, Endereco endereco) {
         super(cpf, nome, nascimento, endereco);
         this.crm = crm;
         this.tempoConsulta = tempoConsulta;
         this.expediente = expediente;
         this.consultas = consultas;
+        this.especialidade = especialidade;
     }
 
-    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Long cpf, String nome, LocalDate nascimento, Endereco endereco, Long id) {
+    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade, Long cpf, String nome, LocalDate nascimento, Endereco endereco, Long id) {
         super(cpf, nome, nascimento, endereco, id);
         this.crm = crm;
         this.tempoConsulta = tempoConsulta;
         this.expediente = expediente;
         this.consultas = consultas;
+        this.especialidade = especialidade;
     }
 //</editor-fold>
 
@@ -78,6 +83,14 @@ public class Medico extends Pessoa {
 
     public void setConsultas(List<Consulta> consultas) {
         this.consultas = consultas;
+    }
+    
+    public Especialidade getEspecialidade() {
+        return especialidade;
+    }
+
+    public void setEspecialidade(Especialidade especialidade) {
+        this.especialidade = especialidade;
     }
 //</editor-fold>
 }

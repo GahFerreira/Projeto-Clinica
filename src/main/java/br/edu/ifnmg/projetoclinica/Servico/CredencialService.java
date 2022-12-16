@@ -1,5 +1,6 @@
-package br.edu.ifnmg.projetoclinica;
+package br.edu.ifnmg.projetoclinica.Servico;
 
+import br.edu.ifnmg.projetoclinica.Entidade.Credencial;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

@@ -1,4 +1,4 @@
-package br.edu.ifnmg.projetoclinica;
+package br.edu.ifnmg.projetoclinica.Entidade;
 
 import javax.persistence.Entity;
 
@@ -14,17 +14,20 @@ public class Endereco extends Entidade {
     private String bairro;
     private String cidade;
     private Integer cep;
+    private enum Estado{AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SE, TO}
+    private Estado estado;
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">
     public Endereco() {
     }
     
-    public Endereco(Integer numero, String rua, String bairro, String cidade, Integer cep) {
+    public Endereco(Integer numero, String rua, String bairro, String cidade, Integer cep, Estado estado) {
         this.numero = numero;
         this.rua = rua;
         this.bairro = bairro;
         this.cidade = cidade;
         this.cep = cep;
+        this.estado = estado;
     }
 //</editor-fold>
 
@@ -67,6 +70,13 @@ public class Endereco extends Entidade {
     
     public void setCep(Integer cep) {
         this.cep = cep;
+    }
+    public Estado getEstado() {
+        return estado;
+    }
+    
+    public void setEstado(Estado estado) {
+        this.estado = estado;
     }
 //</editor-fold>
 }
