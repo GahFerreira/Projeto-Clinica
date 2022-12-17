@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    template="/WEB-INF/templates/default.xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+    <ui:define name="main">
+
+        <div class="centralizar">
+            <p:panelGrid columns="2">
+                <f:facet name="header">
+                    Novo Convênio
+                </f:facet>
+                <h:outputLabel for="@next" value="Nome" />
+                <p:inputText id="nome" value="" placeholder="Nome"/>
+
+                <h:outputLabel for="@next" value="Desconto" />
+                <p:inputMask id="desconto" value="" placeholder="80%" 
+                             mask="99%" slotChar="_"/>
+
+                <f:facet name="footer">
+                    <p:commandButton type="button" 
+                                     value="Salvar"
+                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"/>
+                </f:facet>
+            </p:panelGrid>
+        </div>
+    </ui:define>
+</ui:composition>
