@@ -13,19 +13,21 @@
         <div class="caixa">
             <h:form>
                 <p:panelGrid columns="3" layout="grid" styleClass="showcase-text-align-center">
-                    <p:commandButton type="button" 
-                                     value="Cadastrar Cliente" 
-                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"
-                                     />
+                    <p:button
+                        outcome="cadastrarCliente"
+                        value="Cadastrar Cliente" 
+                        styleClass="ui-button-raised ui-button-secondary rounded-button botao"
+                        />
 
-                    <p:commandButton type="button" 
-                                     value="Cadastrar Médico" 
-                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"/>
+                    <p:button
+                        outcome="cadastrarMedico"
+                        value="Cadastrar Médico" 
+                        styleClass="ui-button-raised ui-button-secondary rounded-button botao"/>
 
-                    <p:commandButton type="button" 
-                                     value="Cadastrar Convênio" 
-                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"
-                                     action="cadastrarConvenio"/>
+                    <p:button 
+                        outcome="cadastrarConvenio"
+                        value="Cadastrar Convênio" 
+                        styleClass="ui-button-raised ui-button-secondary rounded-button botao"/>
                 </p:panelGrid>
             </h:form>
         </div>

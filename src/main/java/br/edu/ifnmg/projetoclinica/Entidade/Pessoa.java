@@ -9,9 +9,7 @@ import javax.persistence.OneToOne;
  * @author Projeto
  */
 @MappedSuperclass
-public abstract class Pessoa
-        extends Entidade
-{
+public abstract class Pessoa extends Entidade {
     private Long cpf;
     private String nome;
     private LocalDate nascimento;
@@ -19,20 +17,17 @@ public abstract class Pessoa
     private Endereco endereco;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
-    public Pessoa()
-    {
+    public Pessoa() {
     }
 
-    public Pessoa(Long cpf, String nome, LocalDate nascimento, Endereco endereco)
-    {
+    public Pessoa(Long cpf, String nome, LocalDate nascimento, Endereco endereco) {
         this.cpf = cpf;
         this.nome = nome;
         this.nascimento = nascimento;
         this.endereco = endereco;
     }
-
-    public Pessoa(Long cpf, String nome, LocalDate nascimento, Endereco endereco, Long id)
-    {
+    
+    public Pessoa(Long cpf, String nome, LocalDate nascimento, Endereco endereco, Long id) {
         super(id);
         this.cpf = cpf;
         this.nome = nome;
@@ -42,43 +37,35 @@ public abstract class Pessoa
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public Long getCpf()
-    {
+    public Long getCpf() {
         return cpf;
     }
-
-    public void setCpf(Long cpf)
-    {
+    
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
-
-    public String getNome()
-    {
+    
+    public String getNome() {
         return nome;
     }
-
-    public void setNome(String nome)
-    {
+    
+    public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public LocalDate getNascimento()
-    {
+    
+    public LocalDate getNascimento() {
         return nascimento;
     }
-
-    public void setNascimento(LocalDate nascimento)
-    {
+    
+    public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
-
-    public Endereco getEndereco()
-    {
+    
+    public Endereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco)
-    {
+    public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
 //</editor-fold>

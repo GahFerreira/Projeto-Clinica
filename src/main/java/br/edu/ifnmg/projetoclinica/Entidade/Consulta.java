@@ -12,25 +12,22 @@ import javax.persistence.NamedQuery;
  * @author Projeto
  */
 @Entity
-@NamedQueries(
-        {
-            @NamedQuery(
-                    name = "consulta.loadAll",
-                    query = "select t from Consulta t "
-            ),
-            @NamedQuery(
-                    name = "consulta.findAll",
-                    query = "select distinct t from Consulta t "
-            ),
-            @NamedQuery(
-                    name = "consulta.findById",
-                    query = "select t from Consulta t " +
-                            "where t.id = :id"
-            )
-        })
-public class Consulta
-        extends Entidade
-{
+@NamedQueries({
+    @NamedQuery(
+            name = "consulta.loadAll",
+            query = "select t from Consulta t "
+    ),
+    @NamedQuery(
+            name = "consulta.findAll",
+            query = "select distinct t from Consulta t "
+    ),
+    @NamedQuery(
+            name = "consulta.findById",
+            query = "select t from Consulta t "
+            + "where t.id = :id"
+    )
+})
+public class Consulta extends Entidade {
     private LocalDate dataConsulta;
     private LocalTime horaConsulta;
     private Double preco;
@@ -40,12 +37,10 @@ public class Consulta
     private Medico medico;
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">
-    public Consulta()
-    {
+    public Consulta() {
     }
-
-    public Consulta(LocalDate data, LocalTime hora, Double preco, Cliente cliente, Medico medico)
-    {
+    
+    public Consulta(LocalDate data, LocalTime hora, Double preco, Cliente cliente, Medico medico) {
         this.dataConsulta = data;
         this.horaConsulta = hora;
         this.preco = preco;
@@ -55,53 +50,43 @@ public class Consulta
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public LocalDate getDataConsulta()
-    {
+    public LocalDate getDataConsulta() {
         return dataConsulta;
     }
-
-    public void setDataConsulta(LocalDate dataConsulta)
-    {
+    
+    public void setDataConsulta(LocalDate dataConsulta) {
         this.dataConsulta = dataConsulta;
     }
-
-    public LocalTime getHoraConsulta()
-    {
+    
+    public LocalTime getHoraConsulta() {
         return horaConsulta;
     }
-
-    public void setHoraConsulta(LocalTime horaConsulta)
-    {
+    
+    public void setHoraConsulta(LocalTime horaConsulta) {
         this.horaConsulta = horaConsulta;
     }
-
-    public Double getPreco()
-    {
+    
+    public Double getPreco() {
         return preco;
     }
-
-    public void setPreco(Double preco)
-    {
+    
+    public void setPreco(Double preco) {
         this.preco = preco;
     }
-
-    public Cliente getCliente()
-    {
+    
+    public Cliente getCliente() {
         return cliente;
     }
-
-    public void setCliente(Cliente cliente)
-    {
+    
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    public Medico getMedico()
-    {
+    
+    public Medico getMedico() {
         return medico;
     }
-
-    public void setMedico(Medico medico)
-    {
+    
+    public void setMedico(Medico medico) {
         this.medico = medico;
     }
 //</editor-fold>

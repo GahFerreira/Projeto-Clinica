@@ -23,7 +23,6 @@ public class ConvenioBean
     private ConvenioServiceLocal convenioService;
 
     private Convenio convenio;
-
     /**
      * Creates a new instance of ConvenioBean
      */
@@ -51,28 +50,24 @@ public class ConvenioBean
         this.convenio = convenio;
     }
 
-
-
-    public void save(Convenio convenio)
-            throws Exception
+    
+    
+    public void save(Convenio convenio) throws Exception
     {
         convenioService.save(convenio);
     }
-
-    public Convenio find(Long ID)
-            throws Exception
+    
+    public Convenio find(Long ID) throws Exception
     {
         return convenioService.find(ID);
     }
-
-    public void remove(Convenio rem)
-            throws Exception
+    
+    public void remove(Convenio rem) throws Exception
     {
         convenioService.remove(rem);
     }
-
-    public void update(Convenio updt)
-            throws Exception
+    
+    public void update(Convenio updt) throws Exception
     {
         convenioService.update(updt);
     }

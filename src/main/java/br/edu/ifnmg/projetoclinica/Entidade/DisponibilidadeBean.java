@@ -21,9 +21,9 @@ public class DisponibilidadeBean
 {
     @Inject
     private DisponibilidadeServiceLocal disponibilidadeService;
-
+    
     private Disponibilidade disponibilidade;
-
+    
     /**
      * Creates a new instance of DisponibilidadeBean
      */
@@ -50,29 +50,25 @@ public class DisponibilidadeBean
     {
         this.disponibilidade = disponibilidade;
     }
-
-
-
-    public void save(Disponibilidade dia)
-            throws Exception
+    
+    
+    
+    public void save(Disponibilidade dia) throws Exception
     {
         disponibilidadeService.save(dia);
     }
-
-    public Disponibilidade find(Long ID)
-            throws Exception
+            
+    public Disponibilidade find(Long ID) throws Exception
     {
         return disponibilidadeService.find(ID);
     }
-
-    public void remove(Disponibilidade rem)
-            throws Exception
+            
+    public void remove(Disponibilidade rem) throws Exception
     {
         disponibilidadeService.remove(rem);
     }
-
-    public void update(Disponibilidade updt)
-            throws Exception
+            
+    public void update(Disponibilidade updt) throws Exception
     {
         disponibilidadeService.update(updt);
     }

@@ -23,55 +23,51 @@ public class ConsultaBean
     private ConsultaServiceLocal consultaService;
     
     private Consulta consultaSelecionada;
-
-
+    
+    
     /**
      * Creates a new instance of ConsultaBean
      */
     public ConsultaBean()
     {
     }
-    
+
     public ConsultaServiceLocal getConsultaService()
     {
         return consultaService;
     }
-    
+
     public void setConsultaService(ConsultaServiceLocal consultaService)
     {
         this.consultaService = consultaService;
     }
-    
+
     public Consulta getConsultaSelecionada()
     {
         return consultaSelecionada;
     }
-    
+
     public void setConsultaSelecionada(Consulta consultaSelecionada)
     {
         this.consultaSelecionada = consultaSelecionada;
     }
     
-    public void save(Consulta consulta)
-            throws Exception
+    public void save(Consulta consulta) throws Exception
     {
         consultaService.save(consulta);
     }
     
-    public Consulta find(Long ID)
-            throws Exception
+    public Consulta find(Long ID) throws Exception
     {
         return consultaService.find(ID);
     }
     
-    public void remove(Consulta rem)
-            throws Exception
+    public void remove(Consulta rem) throws Exception
     {
         consultaService.remove(rem);
     }
     
-    public void update(Consulta updt)
-            throws Exception
+    public void update(Consulta updt) throws Exception
     {
         consultaService.update(updt);
     }

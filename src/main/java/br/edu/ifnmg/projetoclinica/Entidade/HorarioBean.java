@@ -23,56 +23,52 @@ public class HorarioBean
     private HorarioServiceLocal horarioService;
     
     private Horario horario;
-
-
+    
+    
     /**
      * Creates a new instance of HorarioBean
      */
     public HorarioBean()
     {
     }
-    
+
     public HorarioServiceLocal getHorarioService()
     {
         return horarioService;
     }
-    
+
     public void setHorarioService(HorarioServiceLocal horarioService)
     {
         this.horarioService = horarioService;
     }
-    
+
     public Horario getHorario()
     {
         return horario;
     }
-    
+
     public void setHorario(Horario horario)
     {
         this.horario = horario;
     }
     
     
-    public void save(Horario die)
-            throws Exception
+    public void save(Horario die) throws Exception
     {
         horarioService.save(die);
     }
     
-    public Horario find(Long ID)
-            throws Exception
+    public Horario find(Long ID) throws Exception
     {
         return horarioService.find(ID);
-    }    
-    
-    public void remove(Horario rem)
-            throws Exception
+    }       
+            
+    public void remove(Horario rem) throws Exception
     {
         horarioService.remove(rem);
     }
     
-    public void update(Horario updt)
-            throws Exception
+    public void update(Horario updt) throws Exception
     {
         horarioService.update(updt);
     }

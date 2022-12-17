@@ -21,7 +21,7 @@ public class MedicoBean
 {
     @Inject
     private MedicoServiceLocal medicoService;
-
+    
     private Medico medico;
 
     /**
@@ -30,47 +30,47 @@ public class MedicoBean
     public MedicoBean()
     {
     }
-
+    
     public MedicoServiceLocal getMedicoService()
     {
         return medicoService;
     }
-
+    
     public void setMedicoService(MedicoServiceLocal medicoService)
     {
         this.medicoService = medicoService;
     }
-
+    
     public Medico getMedico()
     {
         return medico;
     }
-
+    
     public void setMedico(Medico medico)
     {
         this.medico = medico;
     }
-
-
-
+    
+    
+    
     public void save(Medico medico)
             throws Exception
     {
         medicoService.save(medico);
     }
-
+    
     public Medico find(Long ID)
             throws Exception
     {
         return medicoService.find(ID);
     }
-
+    
     public void remove(Medico rem)
             throws Exception
     {
         medicoService.remove(rem);
     }
-
+    
     public void update(Medico updt)
             throws Exception
     {
