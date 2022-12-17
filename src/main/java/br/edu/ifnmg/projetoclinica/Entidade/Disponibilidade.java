@@ -30,9 +30,11 @@ import javax.persistence.OneToMany;
             + "where t.id = :id"
     )
 })
-public class Disponibilidade extends Entidade{
+public class Disponibilidade extends Entidade {
 
-    public enum DiaSemana{segunda, terca, quarta, quinta, sexta}
+    public enum DiaSemana {
+        segunda, terca, quarta, quinta, sexta
+    }
     private DiaSemana nomeDia;
     @OneToMany
     private List<Horario> horario;
@@ -40,10 +42,10 @@ public class Disponibilidade extends Entidade{
     //<editor-fold defaultstate="collapsed" desc="Construtores">
     public Disponibilidade() {
     }
-    
+
     public Disponibilidade(List<Horario> horario, DiaSemana nomeDia) {
         this.horario = horario;
-        this.nomeDia=nomeDia;
+        this.nomeDia = nomeDia;
     }
 //</editor-fold>
 
@@ -51,14 +53,15 @@ public class Disponibilidade extends Entidade{
     public List<Horario> getHorario() {
         return horario;
     }
-    
+
     public void setHorario(List<Horario> horario) {
         this.horario = horario;
     }
-        public DiaSemana getDiaSemana() {
+
+    public DiaSemana getDiaSemana() {
         return nomeDia;
     }
-    
+
     public void setDiaSemana(DiaSemana nomeDia) {
         this.nomeDia = nomeDia;
     }

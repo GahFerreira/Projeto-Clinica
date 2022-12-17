@@ -10,6 +10,7 @@ import javax.persistence.OneToOne;
  */
 @MappedSuperclass
 public abstract class Pessoa extends Entidade {
+
     private Long cpf;
     private String nome;
     private LocalDate nascimento;
@@ -26,7 +27,7 @@ public abstract class Pessoa extends Entidade {
         this.nascimento = nascimento;
         this.endereco = endereco;
     }
-    
+
     public Pessoa(Long cpf, String nome, LocalDate nascimento, Endereco endereco, Long id) {
         super(id);
         this.cpf = cpf;
@@ -40,27 +41,27 @@ public abstract class Pessoa extends Entidade {
     public Long getCpf() {
         return cpf;
     }
-    
+
     public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
-    
+
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
     public LocalDate getNascimento() {
         return nascimento;
     }
-    
+
     public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
     }
-    
+
     public Endereco getEndereco() {
         return endereco;
     }

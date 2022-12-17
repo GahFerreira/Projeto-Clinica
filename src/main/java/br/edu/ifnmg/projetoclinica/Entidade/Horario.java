@@ -26,12 +26,13 @@ import javax.persistence.NamedQuery;
     )
 })
 public class Horario extends Entidade {
+
     private LocalTime horario;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
     public Horario() {
     }
-    
+
     public Horario(LocalTime horario) {
         this.horario = horario;
     }
@@ -41,7 +42,7 @@ public class Horario extends Entidade {
     public LocalTime getDia() {
         return horario;
     }
-    
+
     public void setDia(LocalTime horario) {
         this.horario = horario;
     }

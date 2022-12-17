@@ -29,13 +29,14 @@ import javax.persistence.OneToOne;
     )
 })
 public class Expediente extends Entidade {
+
     @OneToMany
     private List<Disponibilidade> dia;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
     public Expediente() {
     }
-    
+
     public Expediente(List<Disponibilidade> dia) {
         this.dia = dia;
     }
@@ -45,7 +46,7 @@ public class Expediente extends Entidade {
     public List<Disponibilidade> getExpediente() {
         return dia;
     }
-    
+
     public void setExpediente(List<Disponibilidade> dia) {
         this.dia = dia;
     }

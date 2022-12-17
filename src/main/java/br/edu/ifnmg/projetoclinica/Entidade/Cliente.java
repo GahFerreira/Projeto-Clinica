@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 
 /**
  * Classe que representa um cliente da clínica.
- * 
+ *
  * @author Projeto
  */
 @Entity
@@ -32,23 +32,24 @@ import javax.persistence.OneToMany;
     )
 })
 public class Cliente extends Pessoa {
+
     @OneToMany
     private List<Consulta> consultas;
     @ManyToMany
-    @JoinTable(name = "cliente_convenio", 
-        joinColumns = @JoinColumn(name = "cliente_id"), 
-        inverseJoinColumns = @JoinColumn(name = "convenio_id"))
+    @JoinTable(name = "cliente_convenio",
+            joinColumns = @JoinColumn(name = "cliente_id"),
+            inverseJoinColumns = @JoinColumn(name = "convenio_id"))
     private List<Convenio> convenio;
-    
+
     //<editor-fold defaultstate="collapsed" desc="Construtores">
     public Cliente() {
     }
-    
+
     public Cliente(List<Consulta> consultas, List<Convenio> convenio) {
         this.consultas = consultas;
         this.convenio = convenio;
     }
-    
+
     public Cliente(List<Consulta> consultas, List<Convenio> convenio, Long cpf, String nome, LocalDate nascimento, Endereco endereco) {
         super(cpf, nome, nascimento, endereco);
         this.consultas = consultas;
@@ -60,14 +61,15 @@ public class Cliente extends Pessoa {
     public List<Consulta> getConsultas() {
         return consultas;
     }
-    
+
     public void setConsultas(List<Consulta> consultas) {
         this.consultas = consultas;
     }
+
     public List<Convenio> getConvenio() {
         return convenio;
     }
-    
+
     public void setConvenio(List<Convenio> convenio) {
         this.convenio = convenio;
     }

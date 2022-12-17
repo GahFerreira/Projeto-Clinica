@@ -29,9 +29,13 @@ import javax.persistence.OneToOne;
     )
 })
 public class Medico extends Pessoa {
+
     private String crm;
     private Double tempoConsulta;
-    public enum Especialidade{Dentista, Oftamologista, Pneumologista, Otarrinolaringologista}
+
+    public enum Especialidade {
+        Dentista, Oftamologista, Pneumologista, Otarrinolaringologista
+    }
     private Especialidade especialidade;
     @OneToOne
     private Expediente expediente;
@@ -47,7 +51,7 @@ public class Medico extends Pessoa {
         this.tempoConsulta = tempoConsulta;
         this.expediente = expediente;
         this.consultas = consultas;
-        this.especialidade= especialidade;
+        this.especialidade = especialidade;
     }
 
     public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade, Long cpf, String nome, LocalDate nascimento, Endereco endereco) {
@@ -73,27 +77,27 @@ public class Medico extends Pessoa {
     public String getCrm() {
         return crm;
     }
-    
+
     public void setCrm(String crm) {
         this.crm = crm;
     }
-    
+
     public Double getTempoConsulta() {
         return tempoConsulta;
     }
-    
+
     public void setTempoConsulta(Double tempoConsulta) {
         this.tempoConsulta = tempoConsulta;
     }
-    
+
     public Expediente getExpediente() {
         return expediente;
     }
-    
+
     public void setExpediente(Expediente expediente) {
         this.expediente = expediente;
     }
-    
+
     public List<Consulta> getConsultas() {
         return consultas;
     }
@@ -101,7 +105,7 @@ public class Medico extends Pessoa {
     public void setConsultas(List<Consulta> consultas) {
         this.consultas = consultas;
     }
-    
+
     public Especialidade getEspecialidade() {
         return especialidade;
     }

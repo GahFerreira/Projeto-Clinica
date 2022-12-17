@@ -8,7 +8,7 @@ import javax.persistence.NamedQuery;
 
 /**
  * Classe que representa um cliente da clínica.
- * 
+ *
  * @author Saulo
  */
 @Entity
@@ -27,16 +27,17 @@ import javax.persistence.NamedQuery;
             + "where t.id = :id"
     )
 })
-public class Convenio extends Entidade{
+public class Convenio extends Entidade {
+
     private String nome;
     private Double desconto;
     @ManyToMany(mappedBy = "convenio")
     private List<Cliente> clientes;
-    
+
     //<editor-fold defaultstate="collapsed" desc="Construtores">
     public Convenio() {
     }
-    
+
     public Convenio(String nome, Double desconto) {
         this.nome = nome;
         this.desconto = desconto;
@@ -47,14 +48,15 @@ public class Convenio extends Entidade{
     public String getNome() {
         return nome;
     }
-    
+
     public void setNome(String nome) {
         this.nome = nome;
     }
-        public Double getDesconto() {
+
+    public Double getDesconto() {
         return desconto;
     }
-    
+
     public void setDesconto(Double desconto) {
         this.desconto = desconto;
     }

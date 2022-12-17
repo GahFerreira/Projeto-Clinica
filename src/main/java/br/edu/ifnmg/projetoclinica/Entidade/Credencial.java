@@ -27,17 +27,17 @@ import javax.persistence.NamedQuery;
 })
 public class Credencial extends Entidade {
 
-    @Column(nullable=false, length=121)
+    @Column(nullable = false, length = 121)
     private String nomeUsuario;
-    @Column(nullable=false, length=6)
+    @Column(nullable = false, length = 6)
     private String senha;
-    @Column(nullable=false)
+    @Column(nullable = false)
     private Boolean administrador;
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">
     public Credencial() {
     }
-    
+
     public Credencial(String nomeUsuario, String senha, Boolean admin) {
         this.nomeUsuario = nomeUsuario;
         this.senha = senha;
@@ -49,27 +49,28 @@ public class Credencial extends Entidade {
     public String getNomeUsuario() {
         return nomeUsuario;
     }
-    
+
     public void setNomeUsuario(String nomeUsuario) {
         this.nomeUsuario = nomeUsuario;
     }
-    
+
     public String getSenha() {
         return senha;
     }
-    
+
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
     public Boolean getAdministrador() {
         return administrador;
     }
-    
+
     public void setAdministrador(Boolean administrador) {
         this.administrador = administrador;
     }
 //</editor-fold>
+
     @Override
     public String toString() {
         return "Credencial{"
