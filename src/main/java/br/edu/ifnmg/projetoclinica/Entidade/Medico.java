@@ -3,6 +3,8 @@ package br.edu.ifnmg.projetoclinica.Entidade;
 import java.time.LocalDate;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -11,6 +13,21 @@ import javax.persistence.OneToOne;
  * @author Projeto
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "medico.loadAll",
+            query = "select t from Medico t "
+    ),
+    @NamedQuery(
+            name = "medico.findAll",
+            query = "select distinct t from Medico t "
+    ),
+    @NamedQuery(
+            name = "medico.findById",
+            query = "select t from Medico t "
+            + "where t.id = :id"
+    )
+})
 public class Medico extends Pessoa {
     private String crm;
     private Double tempoConsulta;

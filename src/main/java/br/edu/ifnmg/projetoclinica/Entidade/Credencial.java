@@ -2,12 +2,29 @@ package br.edu.ifnmg.projetoclinica.Entidade;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author Projeto
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "credencial.loadAll",
+            query = "select t from Credencial t "
+    ),
+    @NamedQuery(
+            name = "credencial.findAll",
+            query = "select distinct t from Credencial t "
+    ),
+    @NamedQuery(
+            name = "credencial.findById",
+            query = "select t from Credencial t "
+            + "where t.id = :id"
+    )
+})
 public class Credencial extends Entidade {
 
     @Column(nullable=false, length=121)

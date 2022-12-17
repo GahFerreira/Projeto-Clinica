@@ -4,12 +4,29 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author Projeto
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "consulta.loadAll",
+            query = "select t from Consulta t "
+    ),
+    @NamedQuery(
+            name = "consulta.findAll",
+            query = "select distinct t from Consulta t "
+    ),
+    @NamedQuery(
+            name = "consulta.findById",
+            query = "select t from Consulta t "
+            + "where t.id = :id"
+    )
+})
 public class Consulta extends Entidade {
     private LocalDate dataConsulta;
     private LocalTime horaConsulta;
