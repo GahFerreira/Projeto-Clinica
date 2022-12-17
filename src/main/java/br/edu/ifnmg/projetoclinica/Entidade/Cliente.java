@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -14,6 +16,21 @@ import javax.persistence.OneToMany;
  * @author Projeto
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "cliente.loadAll",
+            query = "select t from Cliente t "
+    ),
+    @NamedQuery(
+            name = "cliente.findAll",
+            query = "select distinct t from Cliente t "
+    ),
+    @NamedQuery(
+            name = "cliente.findById",
+            query = "select t from Cliente t "
+            + "where t.id = :id"
+    )
+})
 public class Cliente extends Pessoa {
     @OneToMany
     private List<Consulta> consultas;

@@ -1,6 +1,8 @@
 package br.edu.ifnmg.projetoclinica.Entidade;
 
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  * Classe que representa um endereço.
@@ -8,6 +10,21 @@ import javax.persistence.Entity;
  * @author Projeto
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "endereco.loadAll",
+            query = "select t from Endereco t "
+    ),
+    @NamedQuery(
+            name = "endereco.findAll",
+            query = "select distinct t from Endereco t "
+    ),
+    @NamedQuery(
+            name = "endereco.findById",
+            query = "select t from Endereco t "
+            + "where t.id = :id"
+    )
+})
 public class Endereco extends Entidade {
     private Integer numero;
     private String rua;
@@ -15,7 +32,7 @@ public class Endereco extends Entidade {
     private String cidade;
     private Integer cep;
     private enum Estado{AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SE, TO}
-    private Estado estado;
+    private Estado estado;//na dúvida se precisaria de usar @Enumerated e manter no banco
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">
     public Endereco() {

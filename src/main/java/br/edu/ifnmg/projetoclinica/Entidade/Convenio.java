@@ -3,6 +3,8 @@ package br.edu.ifnmg.projetoclinica.Entidade;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  * Classe que representa um cliente da clínica.
@@ -10,6 +12,21 @@ import javax.persistence.ManyToMany;
  * @author Saulo
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "convenio.loadAll",
+            query = "select t from Convenio t "
+    ),
+    @NamedQuery(
+            name = "convenio.findAll",
+            query = "select distinct t from Convenio t "
+    ),
+    @NamedQuery(
+            name = "convenio.findById",
+            query = "select t from Convenio t "
+            + "where t.id = :id"
+    )
+})
 public class Convenio extends Entidade{
     private String nome;
     private Double desconto;

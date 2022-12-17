@@ -6,6 +6,8 @@ package br.edu.ifnmg.projetoclinica.Entidade;
 
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 /**
@@ -13,6 +15,21 @@ import javax.persistence.OneToMany;
  * @author Saulo
  */
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "disponibilidade.loadAll",
+            query = "select t from Disponibilidade t "
+    ),
+    @NamedQuery(
+            name = "disponibilidade.findAll",
+            query = "select distinct t from Disponibilidade t "
+    ),
+    @NamedQuery(
+            name = "disponibilidade.findById",
+            query = "select t from Disponibilidade t "
+            + "where t.id = :id"
+    )
+})
 public class Disponibilidade extends Entidade{
 
     private enum DiaSemana{segunda, terça, quarta, quinta, sexta}
