@@ -17,35 +17,35 @@
                     Novo Médico
                 </f:facet>
                 <h:outputLabel for="@next" value="Nome"/>
-                <p:inputText id="nome" value="" placeholder="Nome"/>
+                <p:inputText id="nome" value="#{medico.nome}" placeholder="Nome"/>
 
                 <h:outputLabel for="@next" value="Telefone" />
-                <p:inputMask id="telefone" value="" placeholder="(38) 9 9999-9999" 
+                <p:inputMask id="telefone" value="#{medico.telefone}" placeholder="(38) 9 9999-9999" 
                              mask="(99) 9 9999-9999" slotChar="_"/>
 
                 <h:outputLabel for="@next" value="E-mail" />
-                <p:inputText id="email" value="" placeholder="seu@mail.com"/>
+                <p:inputText id="email" value="#{medico.email}" placeholder="seu@mail.com"/>
 
                 <h:outputLabel for="@next" value="CPF" />
-                <p:inputMask id="cpf" value="" placeholder="000.000.000-00"
+                <p:inputMask id="cpf" value="#{medico.cpf}" placeholder="000.000.000-00"
                              mask="999.999.999-99" slotChar="_"/>
                 
                 <h:outputLabel for="@next" value="CRM" />
-                <p:inputText id="crm" value="" placeholder="CRM"/>
+                <p:inputText id="crm" value="#{medico.crm}" placeholder="CRM"/>
                 
                 <h:outputLabel for="@next" value="Tempo Consulta" />
-                <p:inputMask id="tempoConsulta" value="" placeholder="12:34"
+                <p:inputMask id="tempoConsulta" value="#{medico.tempoConsulta}" placeholder="12:34"
                              mask="99:99" slotChar="_"/>
                 
                 <h:outputLabel for="@next" value="Especialidade" />
-                <p:autoComplete id="especialidade" value="" dropdown="true" forceSelection="true" scrollHeight="250"
+                <p:autoComplete id="especialidade" value="#{medico.especialidade}" dropdown="true" forceSelection="true" scrollHeight="250"
                                 />
-<!--                completeMethod="" ADICIONAR--> 
 
                 <f:facet name="footer">
                     <p:commandButton type="button" 
                                      value="Salvar"
-                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"/>
+                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"
+                                     action="#{medico.save()}"/>
                 </f:facet>
             </p:panelGrid>
         </div>

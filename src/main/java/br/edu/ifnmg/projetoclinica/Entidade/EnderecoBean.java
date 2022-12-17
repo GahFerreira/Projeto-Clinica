@@ -4,9 +4,11 @@
  */
 package br.edu.ifnmg.projetoclinica.Entidade;
 
+import br.edu.ifnmg.projetoclinica.Servico.EnderecoServiceLocal;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,6 +19,10 @@ import java.io.Serializable;
 public class EnderecoBean
         implements Serializable
 {
+    @Inject
+    private EnderecoServiceLocal enderecoService;
+    
+    private Endereco endereco;
 
     /**
      * Creates a new instance of EnderecoBean
@@ -25,4 +31,47 @@ public class EnderecoBean
     {
     }
     
+    public EnderecoServiceLocal getEnderecoService()
+    {
+        return enderecoService;
+    }
+    
+    public void setEnderecoService(EnderecoServiceLocal enderecoService)
+    {
+        this.enderecoService = enderecoService;
+    }
+    
+    public Endereco getEndereco()
+    {
+        return endereco;
+    }
+    
+    public void setEndereco(Endereco endereco)
+    {
+        this.endereco = endereco;
+    }
+    
+    public void save(Endereco endereco)
+            throws Exception
+    {
+        enderecoService.save(endereco);
+    }
+    
+    public Endereco find(Long ID)
+            throws Exception
+    {
+        return enderecoService.find(ID);
+    }
+    
+    public void remove(Endereco rem)
+            throws Exception
+    {
+        enderecoService.remove(rem);
+    }
+    
+    public void update(Endereco updt)
+            throws Exception
+    {
+        enderecoService.update(updt);
+    }
 }

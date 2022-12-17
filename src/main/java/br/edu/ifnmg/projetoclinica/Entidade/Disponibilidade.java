@@ -15,51 +15,68 @@ import javax.persistence.OneToMany;
  * @author Saulo
  */
 @Entity
-@NamedQueries({
-    @NamedQuery(
-            name = "disponibilidade.loadAll",
-            query = "select t from Disponibilidade t "
-    ),
-    @NamedQuery(
-            name = "disponibilidade.findAll",
-            query = "select distinct t from Disponibilidade t "
-    ),
-    @NamedQuery(
-            name = "disponibilidade.findById",
-            query = "select t from Disponibilidade t "
-            + "where t.id = :id"
-    )
-})
-public class Disponibilidade extends Entidade{
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "disponibilidade.loadAll",
+                    query = "select t from Disponibilidade t "
+            ),
+            @NamedQuery(
+                    name = "disponibilidade.findAll",
+                    query = "select distinct t from Disponibilidade t "
+            ),
+            @NamedQuery(
+                    name = "disponibilidade.findById",
+                    query = "select t from Disponibilidade t " +
+                            "where t.id = :id"
+            )
+        })
+public class Disponibilidade
+        extends Entidade
+{
 
-    private enum DiaSemana{segunda, terça, quarta, quinta, sexta}
+    private enum DiaSemana
+    {
+        segunda,
+        terça,
+        quarta,
+        quinta,
+        sexta
+    }
     private DiaSemana nomeDia;
     @OneToMany
     private List<Horario> horario;
 
     //<editor-fold defaultstate="collapsed" desc="Construtores">
-    public Disponibilidade() {
+    public Disponibilidade()
+    {
     }
-    
-    public Disponibilidade(List<Horario> horario, DiaSemana nomeDia) {
+
+    public Disponibilidade(List<Horario> horario, DiaSemana nomeDia)
+    {
         this.horario = horario;
-        this.nomeDia=nomeDia;
+        this.nomeDia = nomeDia;
     }
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public List<Horario> getHorario() {
+    public List<Horario> getHorario()
+    {
         return horario;
     }
-    
-    public void setHorario(List<Horario> horario) {
+
+    public void setHorario(List<Horario> horario)
+    {
         this.horario = horario;
     }
-        public DiaSemana getDiaSemana() {
+
+    public DiaSemana getDiaSemana()
+    {
         return nomeDia;
     }
-    
-    public void setDiaSemana(DiaSemana nomeDia) {
+
+    public void setDiaSemana(DiaSemana nomeDia)
+    {
         this.nomeDia = nomeDia;
     }
 //</editor-fold>

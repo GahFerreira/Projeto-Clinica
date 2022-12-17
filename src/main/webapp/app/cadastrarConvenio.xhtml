@@ -17,16 +17,17 @@
                     Novo Convênio
                 </f:facet>
                 <h:outputLabel for="@next" value="Nome" />
-                <p:inputText id="nome" value="" placeholder="Nome"/>
+                <p:inputText id="nome" value="#{convenio.nome}" placeholder="Nome"/>
 
                 <h:outputLabel for="@next" value="Desconto" />
-                <p:inputMask id="desconto" value="" placeholder="80%" 
+                <p:inputMask id="desconto" value="#{convenio.desconto}" placeholder="80%" 
                              mask="99%" slotChar="_"/>
 
                 <f:facet name="footer">
                     <p:commandButton type="button" 
                                      value="Salvar"
-                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"/>
+                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"
+                                     action="#{convenio.save()}"/>
                 </f:facet>
             </p:panelGrid>
         </div>

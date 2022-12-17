@@ -17,47 +17,46 @@
                     Novo Cliente
                 </f:facet>
                 <h:outputLabel for="@next" value="Nome" />
-                <p:inputText id="nome" value="" placeholder="Nome"
+                <p:inputText id="nome" value="#{cliente.nome}" placeholder="Nome"
                              required="true" requiredMessage="Insira o nome"/>
                 
                 <h:outputLabel for="@next" value="CPF" />
-                <p:inputMask id="cpf" value="" placeholder="000.000.000-00"
+                <p:inputMask id="cpf" value="#{cliente.cpf}" placeholder="000.000.000-00"
                              mask="999.999.999-99" slotChar="_"
                              required="true" requiredMessage="Insira o CPF"/>
 
                 <h:outputLabel for="@next" value="Telefone" />
-                <p:inputMask id="telefone" value="" placeholder="(38) 9 9999-9999" 
+                <p:inputMask id="telefone" value="#{cliente.telefone}" placeholder="(38) 9 9999-9999" 
                              mask="(99) 9 9999-9999" slotChar="_"/>
 
                 <h:outputLabel for="@next" value="E-mail" />
                 <p:inputText id="email" value="" placeholder="seu@mail.com"/>
                 
                 <h:outputLabel for="@next" value="Rua" />
-                <p:inputText id="rua" value="" placeholder="Av. ABC"/>
+                <p:inputText id="rua" value="#{cliente.endereco.rua}" placeholder="Av. ABC"/>
                 
                 <h:outputLabel for="@next" value="Cidade" />
-                <p:inputText id="cidade" value="" placeholder="Belo Horizonte"/>
+                <p:inputText id="cidade" value="#{cliente.endereco.cidade}" placeholder="Belo Horizonte"/>
                 
                 <p:outputLabel for="@next" value="Estado" />
-                <p:autoComplete id="estado" value="" forceSelection="true"
+                <p:autoComplete id="estado" value="#{cliente.endereco.estado}" forceSelection="true"
                                 maxResults="10" emptyMessage="No results">
                 </p:autoComplete>
-<!--                completeMethod="" ADICIONAR--> 
                 
                 <h:outputLabel for="@next" value="CEP" />
-                <p:inputMask id="cep" value="" placeholder="12.345-678"
+                <p:inputMask id="cep" value="#{cliente.endereco.cep}" placeholder="12.345-678"
                              mask="99.999-999" slotChar="_"/>
                 
                 <p:outputLabel for="@next" value="Convênio" />
-                <p:autoComplete id="convenio" value="" forceSelection="true"
+                <p:autoComplete id="convenio" value="#{cliente.convenio}" forceSelection="true"
                                 maxResults="10" emptyMessage="No results">
                 </p:autoComplete>
-<!--                completeMethod="" ADICIONAR--> 
 
                 <f:facet name="footer">
                     <p:commandButton type="button" 
                                      value="Salvar"
-                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"/>
+                                     styleClass="ui-button-raised ui-button-secondary rounded-button botao"
+                                     action="#{cliente.save()}"/>
                 </f:facet>
             </p:panelGrid>
         </div>

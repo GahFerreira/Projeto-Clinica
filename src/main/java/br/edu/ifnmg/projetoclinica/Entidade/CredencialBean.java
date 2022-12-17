@@ -4,9 +4,11 @@
  */
 package br.edu.ifnmg.projetoclinica.Entidade;
 
+import br.edu.ifnmg.projetoclinica.Servico.CredencialServiceLocal;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import java.io.Serializable;
+import javax.inject.Inject;
 
 /**
  *
@@ -17,6 +19,10 @@ import java.io.Serializable;
 public class CredencialBean
         implements Serializable
 {
+    @Inject
+    private CredencialServiceLocal credencialService;
+
+    private Credencial credencial;
 
     /**
      * Creates a new instance of CredencialBean
@@ -24,5 +30,48 @@ public class CredencialBean
     public CredencialBean()
     {
     }
-    
+
+    public CredencialServiceLocal getCredencialService()
+    {
+        return credencialService;
+    }
+
+    public void setCredencialService(CredencialServiceLocal credencialService)
+    {
+        this.credencialService = credencialService;
+    }
+
+    public Credencial getCredencial()
+    {
+        return credencial;
+    }
+
+    public void setCredencial(Credencial credencial)
+    {
+        this.credencial = credencial;
+    }
+
+    public void save(Credencial credencial)
+            throws Exception
+    {
+        credencialService.save(credencial);
+    }
+
+    public Credencial find(Long ID)
+            throws Exception
+    {
+        return credencialService.find(ID);
+    }
+
+    public void remove(Credencial rem)
+            throws Exception
+    {
+        credencialService.remove(rem);
+    }
+
+    public void update(Credencial updt)
+            throws Exception
+    {
+        credencialService.update(updt);
+    }
 }

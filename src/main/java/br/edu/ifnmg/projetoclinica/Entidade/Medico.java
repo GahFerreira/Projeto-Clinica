@@ -13,25 +13,35 @@ import javax.persistence.OneToOne;
  * @author Projeto
  */
 @Entity
-@NamedQueries({
-    @NamedQuery(
-            name = "medico.loadAll",
-            query = "select t from Medico t "
-    ),
-    @NamedQuery(
-            name = "medico.findAll",
-            query = "select distinct t from Medico t "
-    ),
-    @NamedQuery(
-            name = "medico.findById",
-            query = "select t from Medico t "
-            + "where t.id = :id"
-    )
-})
-public class Medico extends Pessoa {
+@NamedQueries(
+        {
+            @NamedQuery(
+                    name = "medico.loadAll",
+                    query = "select t from Medico t "
+            ),
+            @NamedQuery(
+                    name = "medico.findAll",
+                    query = "select distinct t from Medico t "
+            ),
+            @NamedQuery(
+                    name = "medico.findById",
+                    query = "select t from Medico t " +
+                            "where t.id = :id"
+            )
+        })
+public class Medico
+        extends Pessoa
+{
     private String crm;
     private Double tempoConsulta;
-    private enum Especialidade{Dentista, Oftamologista, Pneumologista, Otarrinolaringologista}
+
+    private enum Especialidade
+    {
+        Dentista,
+        Oftamologista,
+        Pneumologista,
+        Otarrinolaringologista
+    }
     private Especialidade especialidade;
     @OneToOne
     private Expediente expediente;
@@ -39,18 +49,21 @@ public class Medico extends Pessoa {
     private List<Consulta> consultas;
 
     //<editor-fold defaultstate="collapsed" desc="Construtor">
-    public Medico() {
+    public Medico()
+    {
     }
 
-    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade) {
+    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade)
+    {
         this.crm = crm;
         this.tempoConsulta = tempoConsulta;
         this.expediente = expediente;
         this.consultas = consultas;
-        this.especialidade= especialidade;
+        this.especialidade = especialidade;
     }
 
-    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade, Long cpf, String nome, LocalDate nascimento, Endereco endereco) {
+    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade, Long cpf, String nome, LocalDate nascimento, Endereco endereco)
+    {
         super(cpf, nome, nascimento, endereco);
         this.crm = crm;
         this.tempoConsulta = tempoConsulta;
@@ -59,7 +72,8 @@ public class Medico extends Pessoa {
         this.especialidade = especialidade;
     }
 
-    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade, Long cpf, String nome, LocalDate nascimento, Endereco endereco, Long id) {
+    public Medico(String crm, Double tempoConsulta, Expediente expediente, List<Consulta> consultas, Especialidade especialidade, Long cpf, String nome, LocalDate nascimento, Endereco endereco, Long id)
+    {
         super(cpf, nome, nascimento, endereco, id);
         this.crm = crm;
         this.tempoConsulta = tempoConsulta;
@@ -70,43 +84,53 @@ public class Medico extends Pessoa {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public String getCrm() {
+    public String getCrm()
+    {
         return crm;
     }
-    
-    public void setCrm(String crm) {
+
+    public void setCrm(String crm)
+    {
         this.crm = crm;
     }
-    
-    public Double getTempoConsulta() {
+
+    public Double getTempoConsulta()
+    {
         return tempoConsulta;
     }
-    
-    public void setTempoConsulta(Double tempoConsulta) {
+
+    public void setTempoConsulta(Double tempoConsulta)
+    {
         this.tempoConsulta = tempoConsulta;
     }
-    
-    public Expediente getExpediente() {
+
+    public Expediente getExpediente()
+    {
         return expediente;
     }
-    
-    public void setExpediente(Expediente expediente) {
+
+    public void setExpediente(Expediente expediente)
+    {
         this.expediente = expediente;
     }
-    
-    public List<Consulta> getConsultas() {
+
+    public List<Consulta> getConsultas()
+    {
         return consultas;
     }
 
-    public void setConsultas(List<Consulta> consultas) {
+    public void setConsultas(List<Consulta> consultas)
+    {
         this.consultas = consultas;
     }
-    
-    public Especialidade getEspecialidade() {
+
+    public Especialidade getEspecialidade()
+    {
         return especialidade;
     }
 
-    public void setEspecialidade(Especialidade especialidade) {
+    public void setEspecialidade(Especialidade especialidade)
+    {
         this.especialidade = especialidade;
     }
 //</editor-fold>
