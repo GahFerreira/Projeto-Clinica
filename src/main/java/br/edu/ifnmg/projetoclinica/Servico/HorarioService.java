@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Horario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,20 +20,24 @@ public class HorarioService implements HorarioServiceLocal {
     private EntityManager manager;
     
     @Override
-    public void save(Horario dia) throws Exception{
+    public void save(Horario dia){
         manager.persist(dia);
     }
     @Override
-    public Horario find(Long ID) throws Exception{
-        Horario ret = manager.find(Horario.class, ID);
-        return ret;
+    public List<Horario> find(Long ID){
+        return manager
+                .createNamedQuery(
+                        "horario.findById",
+                        Horario.class)
+                .setParameter("id", ID)
+                .getResultList();
     }
     @Override
-    public void remove(Horario rem) throws Exception{
+    public void remove(Horario rem){
         manager.remove(rem);
     }
     @Override
-    public void update(Horario updt) throws Exception{
+    public void update(Horario updt){
         manager.merge(updt);
     }
 }

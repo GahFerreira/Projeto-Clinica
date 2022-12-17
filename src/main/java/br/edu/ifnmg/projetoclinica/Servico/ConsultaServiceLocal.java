@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Consulta;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,8 +14,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface ConsultaServiceLocal {
-    public void save(Consulta consulta) throws Exception;
-    public Consulta find(Long ID) throws Exception;
-    public void remove(Consulta rem) throws Exception;
-    public void update(Consulta updt) throws Exception; 
+    public void save(Consulta consulta);
+    public List<Consulta> find(Long ID);
+    public void remove(Consulta rem);
+    public void update(Consulta updt); 
 }

@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Credencial;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,8 +14,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface CredencialServiceLocal {
-    public void save(Credencial credencial) throws Exception;
-    public Credencial find(Long ID) throws Exception;
-    public void remove(Credencial rem) throws Exception;
-    public void update(Credencial updt) throws Exception; 
+    public void save(Credencial credencial);
+    public List<Credencial> find(Long ID);
+    public void remove(Credencial rem);
+    public void update(Credencial updt); 
 }

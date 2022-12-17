@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Medico;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,8 +14,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface MedicoServiceLocal {
-    public void save(Medico medico) throws Exception;
-    public Medico find(Long ID) throws Exception;
-    public void remove(Medico rem) throws Exception;
-    public void update(Medico updt) throws Exception; 
+    public void save(Medico medico);
+    public Medico find(Long ID);
+    public void remove(Medico rem);
+    public void update(Medico updt); 
 }

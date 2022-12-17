@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Convenio;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,8 +14,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface ConvenioServiceLocal {
-    public void save(Convenio convenio) throws Exception;
-    public Convenio find(Long ID) throws Exception;
-    public void remove(Convenio rem) throws Exception;
-    public void update(Convenio updt) throws Exception; 
+    public void save(Convenio convenio);
+    public List<Convenio> find(Long ID);
+    public void remove(Convenio rem);
+    public void update(Convenio updt); 
 }

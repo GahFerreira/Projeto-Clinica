@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Horario;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,8 +14,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface HorarioServiceLocal {
-    public void save(Horario die) throws Exception;
-    public Horario find(Long ID) throws Exception;
-    public void remove(Horario rem) throws Exception;
-    public void update(Horario updt) throws Exception; 
+    public void save(Horario die);
+    public List<Horario> find(Long ID);
+    public void remove(Horario rem);
+    public void update(Horario updt); 
 }

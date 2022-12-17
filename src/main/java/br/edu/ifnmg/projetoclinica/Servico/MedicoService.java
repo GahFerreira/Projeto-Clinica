@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Medico;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,17 +19,21 @@ public class MedicoService implements MedicoServiceLocal{
     @PersistenceContext(unitName = "ClinicaDU")
     private EntityManager manager;
     
-    public void save(Medico medico) throws Exception{
+    public void save(Medico medico){
         manager.persist(medico);
     }
-    public Medico find(Long ID) throws Exception{
-        Medico ret = manager.find(Medico.class, ID);
-        return ret;
+    public Medico find(Long ID){
+        return manager
+                .createNamedQuery(
+                        "medico.findById",
+                        Medico.class)
+                .setParameter("id", ID)
+                .getSingleResult();
     }
-    public void remove(Medico rem) throws Exception{
+    public void remove(Medico rem){
         manager.remove(rem);
     }
-    public void update(Medico updt) throws Exception{
+    public void update(Medico updt){
         manager.merge(updt);
     }
 }

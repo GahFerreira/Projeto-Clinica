@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Cliente;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,21 +20,25 @@ public class ClienteService implements ClienteServiceLocal{
     private EntityManager manager;
     
     @Override
-    public void save(Cliente cliente) throws Exception{
+    public void save(Cliente cliente){
         manager.persist(cliente);
     }
     @Override
-    public Cliente find(Long ID) throws Exception{
-        Cliente ret = manager.find(Cliente.class, ID);
-        return ret;
+    public Cliente find(Long ID){
+        return manager
+                .createNamedQuery(
+                        "cliente.findById",
+                        Cliente.class)
+                .setParameter("id", ID)
+                .getSingleResult();
     }
     @Override
-    public void remove(Cliente rem) throws Exception{
+    public void remove(Cliente rem){
         //manager.remove(manager.contains(rem) ? rem : manager.merge(rem)); //antigo
         manager.remove(rem);
     }
     @Override
-    public void update(Cliente updt) throws Exception{
+    public void update(Cliente updt){
         //interface pra pegar a mudança
         //faz a mudança tipo updt.setNomeUsuario("Novo nome") e chama esse update;
         manager.merge(updt);

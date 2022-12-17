@@ -1,6 +1,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Credencial;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,20 +16,24 @@ public class CredencialService implements CredencialServiceLocal{
     private EntityManager manager;
     
     @Override
-    public void save(Credencial credencial) throws Exception{
+    public void save(Credencial credencial){
         manager.persist(credencial);
     }
     @Override
-    public Credencial find(Long ID) throws Exception{
-        Credencial ret = manager.find(Credencial.class, ID);
-        return ret;
+    public List<Credencial> find(Long ID){
+        return manager
+                .createNamedQuery(
+                        "credencial.findById",
+                        Credencial.class)
+                .setParameter("id", ID)
+                .getResultList();
     }
     @Override
-    public void remove(Credencial rem) throws Exception{
+    public void remove(Credencial rem){
         manager.remove(rem);
     }
     @Override
-    public void update(Credencial updt) throws Exception{
+    public void update(Credencial updt){
         manager.merge(updt); //talvez precise atualizar semelhante à remove
     }
 }

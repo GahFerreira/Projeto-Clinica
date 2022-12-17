@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Disponibilidade;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,8 +14,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface DisponibilidadeServiceLocal {
-    public void save(Disponibilidade dia) throws Exception;
-    public Disponibilidade find(Long ID) throws Exception;
-    public void remove(Disponibilidade rem) throws Exception;
-    public void update(Disponibilidade updt) throws Exception; 
+    public void save(Disponibilidade dia);
+    public List<Disponibilidade> find(Long ID);
+    public void remove(Disponibilidade rem);
+    public void update(Disponibilidade updt); 
 }

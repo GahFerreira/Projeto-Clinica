@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Expediente;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,8 +14,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface ExpedienteServiceLocal {
-    public void save(Expediente expediente) throws Exception;
-    public Expediente find(Long ID) throws Exception;
-    public void remove(Expediente rem) throws Exception;
-    public void update(Expediente updt) throws Exception; 
+    public void save(Expediente expediente);
+    public Expediente find(Long ID);
+    public void remove(Expediente rem);
+    public void update(Expediente updt); 
 }

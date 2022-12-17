@@ -32,7 +32,7 @@ import javax.persistence.OneToMany;
 })
 public class Disponibilidade extends Entidade{
 
-    private enum DiaSemana{segunda, terça, quarta, quinta, sexta}
+    public enum DiaSemana{segunda, terca, quarta, quinta, sexta}
     private DiaSemana nomeDia;
     @OneToMany
     private List<Horario> horario;

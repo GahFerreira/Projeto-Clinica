@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Consulta;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,20 +20,24 @@ public class ConsultaService implements ConsultaServiceLocal{
     private EntityManager manager;
     
     @Override
-    public void save(Consulta consulta) throws Exception{
+    public void save(Consulta consulta){
         manager.persist(consulta);
     }
     @Override
-    public Consulta find(Long ID) throws Exception{
-        Consulta ret = manager.find(Consulta.class, ID);
-        return ret;
+    public List<Consulta> find(Long ID){
+        return manager
+                .createNamedQuery(
+                        "consulta.findById",
+                        Consulta.class)
+                .setParameter("id", ID)
+                .getResultList();
     }
     @Override
-    public void remove(Consulta rem) throws Exception{
+    public void remove(Consulta rem){
         manager.remove(rem);
     }
     @Override
-    public void update(Consulta updt) throws Exception{
+    public void update(Consulta updt){
         manager.merge(updt);
     }
 }

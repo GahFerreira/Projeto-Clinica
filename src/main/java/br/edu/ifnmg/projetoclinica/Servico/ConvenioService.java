@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Convenio;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,20 +20,24 @@ public class ConvenioService implements ConvenioServiceLocal {
     private EntityManager manager;
     
     @Override
-    public void save(Convenio convenio) throws Exception{
+    public void save(Convenio convenio){
         manager.persist(convenio);
     }
     @Override
-    public Convenio find(Long ID) throws Exception{
-        Convenio ret = manager.find(Convenio.class, ID);
-        return ret;
+    public List<Convenio> find(Long ID){
+        return manager
+                .createNamedQuery(
+                        "convenio.findById",
+                        Convenio.class)
+                .setParameter("id", ID)
+                .getResultList();
     }
     @Override
-    public void remove(Convenio rem) throws Exception{
+    public void remove(Convenio rem){
         manager.remove(rem);
     }
     @Override
-    public void update(Convenio updt) throws Exception{
+    public void update(Convenio updt){
         manager.merge(updt); //talvez precise atualizar semelhante à remove
     }
 }

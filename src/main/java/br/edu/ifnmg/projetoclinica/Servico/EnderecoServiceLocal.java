@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Endereco;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -13,8 +14,8 @@ import javax.ejb.Local;
  */
 @Local
 public interface EnderecoServiceLocal {
-    public void save(Endereco endereco) throws Exception;
-    public Endereco find(Long ID) throws Exception;
-    public void remove(Endereco rem) throws Exception;
-    public void update(Endereco updt) throws Exception; 
+    public void save(Endereco endereco);
+    public Endereco find(Long ID);
+    public void remove(Endereco rem);
+    public void update(Endereco updt); 
 }

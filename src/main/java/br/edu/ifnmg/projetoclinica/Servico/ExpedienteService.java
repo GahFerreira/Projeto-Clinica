@@ -5,6 +5,7 @@
 package br.edu.ifnmg.projetoclinica.Servico;
 
 import br.edu.ifnmg.projetoclinica.Entidade.Expediente;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -19,20 +20,24 @@ public class ExpedienteService implements ExpedienteServiceLocal {
     private EntityManager manager;
     
     @Override
-    public void save(Expediente expediente) throws Exception{
+    public void save(Expediente expediente){
         manager.persist(expediente);
     }
     @Override
-    public Expediente find(Long ID) throws Exception{
-        Expediente ret = manager.find(Expediente.class, ID);
-        return ret;
+    public Expediente find(Long ID){
+        return manager
+                .createNamedQuery(
+                        "expediente.findById",
+                        Expediente.class)
+                .setParameter("id", ID)
+                .getSingleResult();
     }
     @Override
-    public void remove(Expediente rem) throws Exception{
+    public void remove(Expediente rem){
         manager.remove(rem);
     }
     @Override
-    public void update(Expediente updt) throws Exception{
+    public void update(Expediente updt){
         manager.merge(updt);
     }
 }

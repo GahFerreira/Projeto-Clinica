@@ -31,7 +31,7 @@ import javax.persistence.OneToOne;
 public class Medico extends Pessoa {
     private String crm;
     private Double tempoConsulta;
-    private enum Especialidade{Dentista, Oftamologista, Pneumologista, Otarrinolaringologista}
+    public enum Especialidade{Dentista, Oftamologista, Pneumologista, Otarrinolaringologista}
     private Especialidade especialidade;
     @OneToOne
     private Expediente expediente;
