@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <h:outputStylesheet 
+            library="css"
+            name="default.css"/>
+<!--        <h:outputStylesheet
+            library="webjars"
+            name="font-awesome/5.15.2/css/all.min-jsf.css" />-->
+        <title>Sistema Hope</title>
+    </h:head>
+
+    <h:body class="corpo">
+        <div>
+            <header>
+                <ui:insert name="header">
+                    <h1 align="center">Bem-vindo(a) ao Sistema Hope</h1>
+                </ui:insert>
+            </header>
+
+            <main>
+                <ui:insert name="main">Principal</ui:insert>
+            </main>
+
+            <footer class="rodape">
+                <ui:insert name="footer">
+                    <p align="center">Rodapé</p>
+                </ui:insert>
+            </footer>
+        </div>
+
+    </h:body>
+
+</html>

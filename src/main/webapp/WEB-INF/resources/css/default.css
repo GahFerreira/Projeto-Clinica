@@ -1,0 +1,41 @@
+/* 
+    Author     : GahFerreira
+*/
+
+.centralizar
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.corpo
+{
+    background-color: rgb(230, 230, 230);
+}
+
+.caixa
+{
+    background-color: rgb(255, 255, 255);
+
+    border: 0.2em solid rgb(215, 215, 205);
+    border-radius: 10em;
+
+    box-shadow: 0.1em 0.1em rgb(40, 40, 50);
+
+    width: 95vw;
+
+    position: relative;
+    margin: 2.5vh auto;
+
+    border-radius: 2em;
+    
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.botao
+{
+    margin-right: .5rem;
+}
